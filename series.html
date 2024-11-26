@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Series - Netflix</title>
+  <style>
+    @import url('./styl.css'); /* Importamos la base */
+
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #141414;
+  background-image: url('https://www.muycomputer.com/wp-content/uploads/2022/06/5-funciones-ocultas-que-no-conocias-de-Netflix-e1656722531484.jpg'); /* Cambia a un fondo de series */
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background-color: #000;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #e50914;
+}
+
+/* Highlight Section */
+.highlight {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.highlight-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.highlight h2 {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  color: #e50914;
+}
+
+.highlight p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.video-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  max-width: 100%;
+  height: 450px;  /* Ajusta la altura del iframe a tu gusto */
+  display: none; /* Ocultamos todos los videos inicialmente */
+}
+
+.video.active {
+  display: block; /* Solo el video activo se muestra */
+}
+
+
+
+.btn-primary {
+  background-color: #e50914;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #ff6f61;
+}
+
+/* Catalog Section */
+.catalog {
+  margin-top: 2rem;
+}
+
+.catalog h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.movie {
+  flex: 0 0 27%;
+  text-align: center;
+  padding: 0.10rem;
+  transition: transform 0.12s ease;
+  box-sizing: border-box;
+}
+
+.movie img {
+  width: 85%;
+  height: 80%;
+  border-radius: 20px;
+}
+
+.movie p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.movie span {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(90, 178, 19, 0.5);
+  border: none;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 100;
+}
+
+.carousel-arrow.left {
+  left: 0;
+}
+
+.carousel-arrow.right {
+  right: 0;
+}
+
+.carousel-arrow:hover {
+  background-color: #e50914;
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Netflix</h1>
+      <nav>
+        <ul class="nav-links">
+            <li><a href="netflix.html">HOME</a></li>
+            <li><a href="movie.html">MOVIES</a></li>
+            <li><a href="series.html">SERIES</a></li>
+            <li><a href="mylist.html">MY LIST</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sección Principal -->
+    <section class="highlight">
+        <div class="highlight-content">
+          <!-- Contenedor de Videos -->
+          <div class="video-carousel">
+            <iframe id="video2" class="video" src="https://www.youtube.com/embed/zzBjNG1GKu4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video3" class="video" src="https://www.youtube.com/embed/GacD8pPOuH4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video4" class="video" src="https://www.youtube.com/embed/cHLwkcv0x6g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      
+          <h2>FEACTURED SERIES</h2>
+        <p>CHECK OUT THE MOST POPULAR SERIES IN OUR CATALOGUE.</p>
+        <a href="#" class="btn-primary">SEE MORE</a>
+        </div>
+      </section>
+      
+      
+    <!-- Carrusel de Películas -->
+    <section class="catalog">
+      <h2>POPULAR MOVIES</h2>
+      <div class="carousel-container">
+        <button class="carousel-arrow left">&larr;</button>
+        <div class="carousel">
+          <div class="movie"><span>1</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4_eF5RXE4tAywn0JqPS9wQ8WwKEFlq8WA6w&s" alt="Movie 1"><p>SERIE Title 1</p></div>
+          <div class="movie"><span>2</span><img src="https://pics.filmaffinity.com/La_jaula_Serie_de_TV-164376954-large.jpg" alt="Movie 2"><p>SERIE Title 2</p></div>
+          <div class="movie"><span>3</span><img src="https://pics.filmaffinity.com/Las_hermanas_Guerra_Serie_de_TV-752399124-large.jpg "alt="Movie 3"><p>SERIE Title 3</p></div>
+          <div class="movie"><span>4</span><img src="https://br.web.img3.acsta.net/c_310_420/img/89/5b/895bcf05afbf1340162247aa8f7d811e.jpg" alt="Movie 4"><p>SERIE Title 4</p></div>
+          <div class="movie"><span>5</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvrd9kwmnrLKbLE6ynixcSGhB686Kb6TdJECs29udMIYZ6o5LQIP1VNTjuY5brwDh-f-I&usqp=CAU" alt="Movie 1"><p>SERIE Title 5</p></div>
+          <div class="movie"><span>6</span><img src="https://fr.web.img4.acsta.net/c_310_420/img/f0/16/f016310c0e69a5be1738c5af371b7780.jpg" alt="Movie 2"><p>SERIE Title 6</p></div>
+          <div class="movie"><span>7</span><img src="https://i.blogs.es/2ad61c/cobra-kai-temporada-5-parte-2/650_1200.jpeg" alt="Movie 3"><p>SERIE Title 7</p></div>
+          
+        <button class="carousel-arrow right">&rarr;</button>
+      </div>
+    </section>
+
+    <!-- Segunda y Tercera Sección -->
+    <section class="catalog">
+      <h2>COMING SOON</h2>
+      <div class="carousel-container">
+        <button class="carousel-arrow left">&larr;</button>
+        <div class="carousel">
+          <div class="movie"><span>1</span><img src="https://scontent.fbga2-1.fna.fbcdn.net/v/t39.30808-6/458756173_942581497912185_5907071678962986051_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=9atTyFk3seIQ7kNvgG62d6o&_nc_zt=23&_nc_ht=scontent.fbga2-1.fna&_nc_gid=A-vXm3NZol5lt4ombP4gdF4&oh=00_AYDZa5Bw39k1J3rcooaLGGfSpa8qaMbq5Zt-vUwKSJ9ZoQ&oe=674B0891" alt="Movie 1"><p>SERIE Title 1</p></div>
+          <div class="movie"><span>2</span><img src="https://i.blogs.es/e0ac13/dan-da-dan-fecha-estreno-netflix-crunchyroll-mexico-latam-octubre-2024/650_1200.jpeg" alt="Movie 2"><p>SERIE Title 2</p></div>
+          <div class="movie"><span>3</span><img src="https://fmglobo.com/u/fotografias/m/2024/10/20/f1280x720-21011_152686_5050.jpg" alt="Movie 3"><p>SERIE Title 3</p></div>
+          <div class="movie"><span>4</span><img src="https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABVuPhtWeHL0f-IQqUcf8JM72orZNiIBMowlbpNK61XRwatb1UV7bD3oZAiziFadIVEpPdWFxgQoLrSjY0SBF17XO7TsVUEe7MPeHeZvAswbiZFI0vqH6mmN5C4Px6T8atZq-8N2ViyuZlHgW2XNtKB6SJhwXzIGZdx0Lpe3Esr-Jin00nGiVDk7Yl8u53uqsZd1lJBVatP-5HeSdWezn-VI_WArsNDouIljdhN6mt1UJqIDa-P-mrs3e2abQJFd3aWSsQuRkoipX9UAqxR2NUTfHR0BKCzyM.jpg?r=e5e" alt="Movie 4"><p>SERIE Title 4</p></div>
+          <div class="movie"><span>5</span><img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABfcm_craRjQj1aHv6BggwChkcyax-kZwNJa3T93voMrhch5dxQS5gD6aVZGqOOLeESl6Isz5aTjgC340NNWB3BFyG_EKD4vR_uU.jpg?r=453" alt="Movie 1"><p>SERIE Title 5</p></div>
+          <div class="movie"><span>6</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTypDQ9ADsSxOK3TjxNnZ7m9r1TBs2eRjC8LA&s" alt="Movie 2"><p>SERIE Title 6</p></div>
+          <div class="movie"><span>7</span><img src="https://pics.filmaffinity.com/Un_negocio_virtuoso_Serie_de_TV-740998604-large.jpg" alt="Movie 3"><p>SERIE Title 7</p></div>
+          
+          <!-- Repetir elementos de la película -->
+          <!-- Asegúrate de cambiar las imágenes y los títulos -->
+        </div>
+        <button class="carousel-arrow right">&rarr;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
+  </footer>
+  <script>
+    document.querySelectorAll('.carousel-container').forEach(container => {
+  const carousel = container.querySelector('.carousel');
+  const leftArrow = container.querySelector('.carousel-arrow.left');
+  const rightArrow = container.querySelector('.carousel-arrow.right');
+
+
+  leftArrow.addEventListener('click', () => {
+    carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+  });
+});
+window.onload = function () {
+  const videos = document.querySelectorAll('.video'); // Seleccionamos todos los iframes (videos)
+  let currentVideo = 0; // Índice del video actual
+
+  function playNextVideo() {
+    // Ocultar el video actual
+    videos[currentVideo].classList.remove('active');
+    
+    // Mover al siguiente video (si llega al final, reiniciar al primero)
+    currentVideo = (currentVideo + 1) % videos.length;
+    
+    // Mostrar el siguiente video
+    videos[currentVideo].classList.add('active');
+  }
+
+  // Iniciar el primer video
+  videos[currentVideo].classList.add('active');
+  
+  // Reproducir el siguiente video cuando el actual termine
+  setTimeout(function() {
+    playNextVideo();
+  }, 140000); // Este tiempo es de 5 segundos, ajústalo si es necesario
+
+  // Controlar el cambio de video cuando se termine el actual (5 segundos en este ejemplo)
+  videos.forEach(video => {
+    video.addEventListener('ended', playNextVideo);
+  });
+};
+
+
+  </script>
+</body>
+</html>

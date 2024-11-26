@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Netflix</title>
+  <style>
+     @import url('./styl.css'); /* Importamos la base */
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #141414;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyorEg_DmYxuYFdPUfxZch4DjAfdY7nHYt9g&s'); /* Cambia a un fondo de series */
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #e50914;
+}
+
+form label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+}
+
+form input:focus {
+  border-color: #e50914;
+}
+
+button.btn-primary {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.btn-primary:hover {
+  background-color: #ff6f61;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #000;
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Netflix</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="netflix.html">HOME</a></li>
+          <li><a href="movie.html">MOVIES</a></li>
+          <li><a href="series.html">SERIES</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="register-section">
+      <div class="container">
+        <h2>CREATE YOUR ACCOUNT</h2>
+        <form action="mylist.html" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+
+          <button type="submit" class="btn-primary">REGISTER</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
+  </footer>
+</body>
+</html>

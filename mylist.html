@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Lista - Netflix</title>
+  <style>
+    @import url('./styl.css'); /* Importamos la base */
+
+.hero {
+  background-image: url('https://i.pinimg.com/736x/98/17/0b/98170b7103cc8982e1fc24e0110ece3b.jpg'); /* Cambia a un fondo relacionado con listas */
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #e50914;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  background-color: #e50914;
+}
+.favorites, .losmasvistos {
+  padding: 40px;
+  max-width: 1150px; /* Limita el ancho máximo de la sección */
+  margin: 0 auto; /* Centra la sección horizontalmente */
+}
+
+.favorites h3, .losmasvistos h3 {
+  color: #e50914;
+  font-size: 3rem; /* Tamaño destacado para los títulos */
+  margin-bottom: 30px;
+  text-align: center; /* Centra el título */
+}
+
+.favorites ul, .losmasvistos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorites ul li, .losmasvistos ul li {
+  display: flex;
+  align-items: flex-start;
+  background: #333;
+  color: #fff;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 20px; /* Espacio entre la imagen y el contenido */
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+}
+
+.favorites ul li img, .losmasvistos ul li img {
+  width: 250px; /* Tamaño grande pero manejable para la imagen */
+  height: 240px; /* Mantiene la proporción de la imagen */
+  border-radius: 10px;
+  flex-shrink: 0; /* Evita que la imagen se reduzca */
+}
+
+.favorites ul li strong, .losmasvistos ul li strong {
+  font-size: 2rem; /* Tamaño grande para los títulos */
+  color: #fff;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.favorites ul li span, .losmasvistos ul li span {
+  font-size: 1rem; /* Tamaño moderado para los detalles */
+  color: #bbb;
+  margin-top: 20px;
+}
+
+.favorites ul li strong, .favorites ul li span {
+  line-height: 1.5; /* Mejora el espaciado entre líneas */
+}
+
+@media screen and (max-width: 768px) {
+  .favorites ul li, .losmasvistos ul li {
+    flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+    align-items: center; /* Centra los elementos */
+  }
+
+  .favorites ul li img, .losmasvistos ul li img {
+    width: 100%; /* La imagen ocupa todo el ancho */
+    max-width: 300px; /* Limita el tamaño máximo */
+    margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+  }
+
+  .favorites h3, .losmasvistos h3 {
+    font-size: 2rem; /* Ajusta el tamaño del título en pantallas pequeñas */
+  }
+}
+
+
+  
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Netflix</h1>
+      <nav>
+        <ul class="nav-links">
+            <li><a href="netflix.html">HOME</a></li>
+            <li><a href="movie.html">MOVIES</a></li>
+            <li><a href="series.html">SERIES</a></li>
+            
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>MY FOVORITIES LIST</h2>
+        <p>HERE YOU WILL FIND ALL YOUR SAVED SERIES AND MOVIES .</p>
+        <a href="#" class="btn-primary">EXPLORE MY LIST</a>
+      </div>
+    </section>
+  </main>
+
+  <main>
+    <section class="favorites">
+      <h3>Tus favoritos</h3>
+      <ul>
+        <li>
+          <img src="https://pics.filmaffinity.com/Los_nianos_perdidos-134200063-large.jpg" alt="Stranger Things" >
+          <strong>Stranger Things</strong>
+          <span>Más visto: 2024-11-24, 8:00 PM</span>
+          <span>Descripción: Un grupo de niños desentraña misterios en su pequeño pueblo.</span>
+        </li>
+        <li>
+          <img src="https://example.com/breaking-bad.jpg" alt="Breaking Bad" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>Breaking Bad</strong>
+          <span>Más visto: 2024-11-23, 9:30 PM</span>
+          <span>Descripción: Un profesor de química recurre a la fabricación de metanfetamina para asegurar el futuro de su familia.</span>
+        </li>
+        <li>
+          <img src="https://example.com/the-witcher.jpg" alt="The Witcher" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>The Witcher</strong>
+          <span>Más visto: 2024-11-22, 7:15 PM</span>
+          <span>Descripción: Un cazador de monstruos lucha con su destino en un mundo caótico.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  
+  <main>
+    <section class="losmasvistos">
+      <h3>los mas vistos</h3>
+      <ul>
+        <li>
+          <img src="https://example.com/stranger-things.jpg" alt="Stranger Things" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>Stranger Things</strong>
+          <span>Más visto: 2024-11-24, 8:00 PM</span>
+          <span>Descripción: Un grupo de niños desentraña misterios en su pequeño pueblo.</span>
+        </li>
+        <li>
+          <img src="https://example.com/breaking-bad.jpg" alt="Breaking Bad" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>Breaking Bad</strong>
+          <span>Más visto: 2024-11-23, 9:30 PM</span>
+          <span>Descripción: Un profesor de química recurre a la fabricación de metanfetamina para asegurar el futuro de su familia.</span>
+        </li>
+        <li>
+          <img src="https://example.com/the-witcher.jpg" alt="The Witcher" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>The Witcher</strong>
+          <span>Más visto: 2024-11-22, 7:15 PM</span>
+          <span>Descripción: Un cazador de monstruos lucha con su destino en un mundo caótico.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+
+
+  <footer class="footer">
+    <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
+  </footer>
+</body>
+</html>

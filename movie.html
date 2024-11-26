@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOVIES - Netflix</title>
+  <style>
+    @import url('./styl.css'); /* Importamos la base */
+    /* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #141414;
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20220206/pngtree-netflix-multimedia-company-light-sign-colorful-communication-movies-photo-image_35291580.jpg'); /* Cambia a un fondo de series */
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background-color: #000;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #e50914;
+}
+
+/* Highlight Section */
+.highlight {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.highlight-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.highlight h2 {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  color: #e50914;
+}
+
+.highlight p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.video-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  max-width: 100%;
+  height: 450px;  /* Ajusta la altura del iframe a tu gusto */
+  display: none; /* Ocultamos todos los videos inicialmente */
+}
+
+.video.active {
+  display: block; /* Solo el video activo se muestra */
+}
+
+
+
+.btn-primary {
+  background-color: #e50914;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #ff6f61;
+}
+
+/* Catalog Section */
+.catalog {
+  margin-top: 2rem;
+}
+
+.catalog h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.movie {
+  flex: 0 0 27%;
+  text-align: center;
+  padding: 0.10rem;
+  transition: transform 0.12s ease;
+  box-sizing: border-box;
+}
+
+.movie img {
+  width: 85%;
+  height: 80%;
+  border-radius: 20px;
+}
+
+.movie p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.movie span {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(90, 178, 19, 0.5);
+  border: none;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 100;
+}
+
+.carousel-arrow.left {
+  left: 0;
+}
+
+.carousel-arrow.right {
+  right: 0;
+}
+
+.carousel-arrow:hover {
+  background-color: #e50914;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Netflix</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="netflix.html">HOME</a></li>
+          <li><a href="movie.html">MOVIES</a></li>
+          <li><a href="series.html">SERIES</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sección Principal -->
+    <section class="highlight">
+        <div class="highlight-content">
+          <!-- Contenedor de Videos -->
+          <div class="video-carousel">
+            <iframe id="video1" class="video" src="https://www.youtube.com/embed/Pj0wz7zu3Ms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video2" class="video" src="https://www.youtube.com/embed/d0JYlUTbv1A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video3" class="video" src="https://www.youtube.com/embed/BmllggGO4pM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video4" class="video" src="https://www.youtube.com/embed/LlJGhxL4yUI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      
+          <h2>New Blockbuster Movie!</h2>
+          <p>Experience the most awaited movie of the year. Now streaming exclusively on Netflix.</p>
+          <a href="#" class="btn-primary">WATCH NOW</a>
+        </div>
+      </section>
+      
+      
+    <!-- Carrusel de Películas -->
+    <section class="catalog">
+      <h2>POPULAR MOVIES</h2>
+      <div class="carousel-container">
+        <button class="carousel-arrow left">&larr;</button>
+        <div class="carousel">
+          <div class="movie"><span>1</span><img src="https://pics.filmaffinity.com/Los_nianos_perdidos-134200063-large.jpg" alt="Movie 1"><p>Movie Title 1</p></div>
+          <div class="movie"><span>2</span><img src="https://image.tmdb.org/t/p/w1280//wKxpBxdrLqXlYKTemPuYL0Y30dV.jpg" alt="Movie 2"><p>Movie Title 2</p></div>
+          <div class="movie"><span>3</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhYyN5iftuM2wTwZKmZjh13uaPJOqMuEwlFsEn0MzJXupiVhfIHmqfN6vrLcivrlcTQHI&usqp=CAU" alt="Movie 3"><p>Movie Title 3</p></div>
+          <div class="movie"><span>4</span><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht-xjufk9taa3580eCx_OF1j_HMsKJAKoJqkqcEcnrEpfgywuN6am-0XTTY6p7IXDPPuCGFETJOOw9s_a9koCQ6cgqF_0dZFH7uRNYmzKx2_7_IMikyNJ4oa7vvv2vZDIS8OEDHpU4eS7wu9JGkqRpIZPS5ouA8wpxKwaa-J1ODqrgOCOho6ZZE-4re9tO/s288/bandido.jpg" alt="Movie 4"><p>Movie Title 4</p></div>
+          <div class="movie"><span>5</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0-Z_oK4gU3uzeLVrr9Eo5pYweF1Yyzn6lVQ&s" alt="Movie 1"><p>Movie Title 5</p></div>
+          <div class="movie"><span>6</span><img src="https://static.wikia.nocookie.net/doblaje/images/d/d7/Nos_vemos_la_proxima_Navidad_-_Poster.jpg/revision/latest/thumbnail/width/360/height/360?cb=20241106144951&path-prefix=es" alt="Movie 2"><p>Movie Title 6</p></div>
+          <div class="movie"><span>7</span><img src="https://i.blogs.es/bda309/poster-mercenarios-4/450_1000.jpeg" alt="Movie 3"><p>Movie Title 7</p></div>
+          <div class="movie"><span>8</span><img src="https://www.justwatch.com/images/poster/305202087/s166/the-whale" alt="Movie 4"><p>Movie Title 8</p></div>
+        </div>
+        <button class="carousel-arrow right">&rarr;</button>
+      </div>
+    </section>
+
+    <!-- Segunda y Tercera Sección -->
+    <section class="catalog">
+      <h2>COMING SOON</h2>
+      <div class="carousel-container">
+        <button class="carousel-arrow left">&larr;</button>
+        <div class="carousel">
+            <div class="movie"><span>1</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZah3tviDK-4MCRsRoGYNFV_sglOJttG54LmIHMtJaprMBO_U4GtDUBJ5Gu7wdPOdjt3ooVAh2rXijd9Xmqiw-Nnm60dsvQ75Tfb8xOa6aq-sHtf7mxj_TmmrA89rv5AnEq9-A.jpg?r=63a" alt="Movie 1"><p>Movie Title 1</p></div>
+          <div class="movie"><span>2</span><img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTvF798TdFDpjeJ0Pc8nOqEjRNiKnTJ1oi9Pt3Nz4YDrhT367Ks7xebPpat7oBHXQxhr7rytkJUU4ub8vydfCtVTxPZUNgN7aIKv.jpg?r=b94" alt="Movie 2"><p>Movie Title 2</p></div>
+          <div class="movie"><span>3</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlqj1hany0Bmq8RWRbCj-Q6SD1C5yv1Ksjw&s" alt="Movie 3"><p>Movie Title 3</p></div>
+          <div class="movie"><span>4</span><img src="https://static.wikia.nocookie.net/doblaje/images/b/bb/Timecut1.jpg/revision/latest?cb=20241106205911&path-prefix=es" alt="Movie 4"><p>Movie Title 4</p></div>
+          <div class="movie"><span>5</span><img src="https://pics.filmaffinity.com/No_te_muevas-752654470-large.jpg" alt="Movie 1"><p>Movie Title 5</p></div>
+          <div class="movie"><span>6</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABc36A6FNlbkQmf8XxwRVSVqVnGmb4xXvz8V1s5yMq5yZuDDfE_q0l4f0EOdvYT-0AbUb6Zn47lzfD2ZTt-g0C6CX2Qpz8tjxTMBT0YBobPDgEi9VRpw3I6OvWPEBXZrOX8QMRg.jpg?r=6bd" alt="Movie 2"><p>Movie Title 6</p></div>
+          <div class="movie"><span>7</span><img src="https://preview.redd.it/the-buckingham-murders-is-coming-to-netflix-on-november-8-v0-9fhd4afr5fzd1.png?auto=webp&s=9fb7ffbaa610c588b62056c6061bfdfaa53d7942" alt="Movie 3"><p>Movie Title 7</p></div>
+          <div class="movie"><span>8</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFZfyOvEWyuUZcTs944lbjvh79SLz1uSfDPA&s" alt="Movie 4"><p>Movie Title 8</p></div>
+          <!-- Repetir elementos de la película -->
+          <!-- Asegúrate de cambiar las imágenes y los títulos -->
+        </div>
+        <button class="carousel-arrow right">&rarr;</button>
+      </div>
+    </section>
+
+    <section class="catalog">
+      <h2>AWARD-WINNING MOVIES</h2>
+      <div class="carousel-container">
+        <button class="carousel-arrow left">&larr;</button>
+        <div class="carousel">
+            <div class="movie"><span>1</span><img src="https://www.infobae.com/resizer/v2/HG3O2Q4ZVRF57OB4Y2VXNR7PXQ.jfif?auth=cd24d65710b0c06d8040c1bbcca915764524c5e148416139f697d1b6f50180bb&smart=true&width=350&height=467&quality=85" alt="Movie 1"><p>Movie Title 1</p></div>
+          <div class="movie"><span>2</span><img src="https://static.wikia.nocookie.net/doblaje/images/0/04/Dopattiposterspanish.png/revision/latest?cb=20241025203951&path-prefix=es" alt="Movie 2"><p>Movie Title 2</p></div>
+          <div class="movie"><span>3</span><img src="https://m.media-amazon.com/images/M/MV5BZjliMjNlZTMtZDgyMS00NWFkLWJiMzMtNWY0MGQxNmY0ZDUwXkEyXkFqcGc@._V1_.jpg" alt="Movie 3"><p>Movie Title 3</p></div>
+          <div class="movie"><span>4</span><img src="https://es.web.img2.acsta.net/pictures/22/04/13/20/33/2712815.jpg" alt="Movie 4"><p>Movie Title 4</p></div>
+          <div class="movie"><span>5</span><img src="https://pics.filmaffinity.com/El_enigma_extraterrestre_Serie_de_TV-495213779-large.jpg" alt="Movie 1"><p>Movie Title 5</p></div>
+          <div class="movie"><span>6</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABcBaUdRaE8dFXz9kCEgjmeuHzWYEgwIsPfHLMCXnui7olueoNNucW25GC7ExjN5bO_uxkPNjmFaKzZYFYOlhBzByc9BhYD0LCyHUFbS4sQq_a26VWss6imI1LRCN4t1PXZnOtg.jpg?r=4e8" alt="Movie 2"><p>Movie Title 6</p></div>
+          <div class="movie"><span>7</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQ-JLdIftbjpq1egLdVnlCxSMHEk92lnsdyMVW1hlG112qc-W6-QFPzm212c5FYsjtjdIx9K7h2ZXZ5JMYF1OwVOXQ1Lw2G5dimNRWOFO_eOyc_Alh1n-wL3lN9OYvLIK_wvJQ.jpg?r=7d3" alt="Movie 3"><p>Movie Title 7</p></div>
+          <div class="movie"><span>8</span><img src="https://pics.filmaffinity.com/La_emperatriz_Serie_de_TV-629738321-large.jpg" alt="Movie 4"><p>Movie Title 8</p></div>
+          <!-- Repetir elementos de la película -->
+          <!-- Asegúrate de cambiar las imágenes y los títulos -->
+        </div>
+        <button class="carousel-arrow right">&rarr;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.carousel-container').forEach(container => {
+  const carousel = container.querySelector('.carousel');
+  const leftArrow = container.querySelector('.carousel-arrow.left');
+  const rightArrow = container.querySelector('.carousel-arrow.right');
+
+
+  leftArrow.addEventListener('click', () => {
+    carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+  });
+});
+window.onload = function () {
+  const videos = document.querySelectorAll('.video'); // Seleccionamos todos los iframes (videos)
+  let currentVideo = 0; // Índice del video actual
+
+  function playNextVideo() {
+    // Ocultar el video actual
+    videos[currentVideo].classList.remove('active');
+    
+    // Mover al siguiente video (si llega al final, reiniciar al primero)
+    currentVideo = (currentVideo + 1) % videos.length;
+    
+    // Mostrar el siguiente video
+    videos[currentVideo].classList.add('active');
+  }
+
+  // Iniciar el primer video
+  videos[currentVideo].classList.add('active');
+  
+  // Reproducir el siguiente video cuando el actual termine
+  setTimeout(function() {
+    playNextVideo();
+  }, 150000); // Este tiempo es de 5 segundos, ajústalo si es necesario
+
+  // Controlar el cambio de video cuando se termine el actual (5 segundos en este ejemplo)
+  videos.forEach(video => {
+    video.addEventListener('ended', playNextVideo);
+  });
+};
+
+
+  </script>
+</body>
+</html>
