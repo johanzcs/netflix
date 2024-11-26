@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Lista - Netflix</title>
+  <style>
+    @import url('./styl.css');
+
+.hero {
+  background-image: url('https://i.pinimg.com/736x/98/17/0b/98170b7103cc8982e1fc24e0110ece3b.jpg'); 
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #e50914;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  background-color: #e50914;
+}
+.favorites, .losmasvistos {
+  padding: 40px;
+  max-width: 1150px;
+  margin: 0 auto; 
+}
+
+.favorites h3, .losmasvistos h3 {
+  color: #e50914;
+  font-size: 3rem; 
+  margin-bottom: 30px;
+  text-align: center; 
+}
+
+.favorites ul, .losmasvistos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorites ul li, .losmasvistos ul li {
+  display: flex;
+  align-items: flex-start;
+  background: #333;
+  color: #fff;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 20px; 
+  overflow: hidden; 
+}
+
+.favorites ul li img, .losmasvistos ul li img {
+  width: 250px; 
+  height: 240px; 
+  border-radius: 10px;
+  flex-shrink: 0; 
+}
+
+.favorites ul li strong, .losmasvistos ul li strong {
+  font-size: 2rem; 
+  color: #fff;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.favorites ul li span, .losmasvistos ul li span {
+  font-size: 1rem; 
+  color: #bbb;
+  margin-top: 20px;
+}
+
+.favorites ul li strong, .favorites ul li span {
+  line-height: 1.5; 
+}
+
+@media screen and (max-width: 768px) {
+  .favorites ul li, .losmasvistos ul li {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .favorites ul li img, .losmasvistos ul li img {
+    width: 100%; 
+    max-width: 300px;
+    margin-bottom: 20px; 
+  }
+
+  .favorites h3, .losmasvistos h3 {
+    font-size: 2rem; 
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Netflix</h1>
+      <nav>
+        <ul class="nav-links">
+            <li><a href="netflix.html">HOME</a></li>
+            <li><a href="movie.html">MOVIES</a></li>
+            <li><a href="series.html">SERIES</a></li>
+            
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>MY FOVORITIES LIST</h2>
+        <p>HERE YOU WILL FIND ALL YOUR SAVED SERIES AND MOVIES .</p>
+        <a href="#" class="btn-primary">EXPLORE MY LIST</a>
+      </div>
+    </section>
+  </main>
+
+  <main>
+    <section class="favorites">
+      <h3>Your favorites</h3>
+      <ul>
+        <li>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWN8AkViFHvaTTH0C7fRRJCnLiYL3CtpbTdw&s" alt="Stranger Things" >
+          <strong>Stranger Things</strong>
+          <span>More view: 2024-11-24, 8:00 PM</span>
+          <span>Descripction: *Stranger Things* is a sci-fi horror series set in the 1980s, following a group of kids in the small town of Hawkins, Indiana. The story begins with the mysterious disappearance of a boy named Will and the arrival of Eleven, a girl with telekinetic powers. As the friends uncover government experiments and supernatural threats from a parallel dimension called the Upside Down, they face terrifying monsters and unravel dark secrets. The show combines nostalgia, thrilling suspense, and heartfelt friendships.</span>
+        </li>
+        <li>
+          <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/07/breaking-bad-cover.jpg?tf=1200x" alt="Breaking Bad" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>Breaking Bad</strong>
+          <span>More view: 2024-11-23, 9:30 PM</span>
+          <span>Descripction: *Breaking Bad* is an American crime drama series that follows Walter White, a struggling high school chemistry teacher diagnosed with terminal cancer. To secure his family’s financial future, he partners with former student Jesse Pinkman to produce and sell high-quality methamphetamine. As Walter transforms into the ruthless drug lord "Heisenberg," the series explores themes of morality, ambition, and the consequences of choices. Known for its intense storytelling, complex characters, and gripping drama, *Breaking Bad* is widely regarded as one of the greatest TV series of all time.</span>
+        </li>
+        <li>
+          <img src="https://es.web.img2.acsta.net/pictures/19/11/22/09/33/5060052.jpg" alt="The Witcher" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>The Witcher</strong>
+          <span>More view: 2024-11-22, 7:15 PM</span>
+          <span>Descripction: *The Witcher* is a fantasy drama series based on the books by Andrzej Sapkowski. It follows Geralt of Rivia, a solitary monster hunter with supernatural abilities, as he navigates a world where humans, elves, and other creatures struggle for survival and power. The story intertwines his destiny with that of Ciri, a princess with a mysterious gift, and Yennefer, a powerful sorceress. Set in a richly detailed world of magic, betrayal, and political intrigue, the series explores themes of fate, morality, and the complexities of human nature.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  
+  <main>
+    <section class="losmasvistos">
+      <h3>More view</h3>
+      <ul>
+        <li>
+          <img src="https://m.media-amazon.com/images/M/MV5BM2ZiNThlNzItNmY3Ny00NjA2LWJlMjItNTk1NDI3MDMyMTk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Peaky Blinders" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>Peaky Blinders</strong>
+          <span>More view: 2024-11-24, 8:00 PM</span>
+          <span>Descripction: Peaky Blinders is a British crime drama series set in post-World War I Birmingham, England. It follows the rise of the Shelby family, led by the ambitious and cunning Tommy Shelby, as they build a powerful criminal empire. Known for its gritty storytelling, sharp costumes, and intense characters, the series blends history and fiction with themes of power, loyalty, and ambition.</span>
+        </li>
+        <li>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz3TKGImmVKAel_fGJJ9tMLO5Sucxlh7TVoA&s" alt="la casa de papel" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>La casa de papel</strong>
+          <span>More view: 2024-11-23, 9:30 PM</span>
+          <span>Descripction: La Casa de Papel (Money Heist) is a Spanish heist drama series that follows a group of skilled criminals led by the enigmatic "Professor." Together, they plan and execute intricate robberies, starting with the Royal Mint of Spain and later targeting the Bank of Spain. The show explores themes of loyalty, sacrifice, and resistance, with high-stakes action and emotional character arcs. Known for its suspenseful storytelling, intricate plots, and iconic red jumpsuits with Salvador Dalí masks, it has become a global phenomenon.</span>
+        </li>
+        <li>
+          <img src="https://es.web.img2.acsta.net/pictures/19/11/22/09/33/5060052.jpg" alt="The Witcher" style="width: 150px; height: auto; border-radius: 5px; margin-right: 10px; float: left;">
+          <strong>The Witcher</strong>
+          <span>Más visto: 2024-11-22, 7:15 PM</span>
+          <span>Descripción: Un cazador de monstruos lucha con su destino en un mundo caótico.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+
+
+  <footer class="footer">
+    <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
+  </footer>
+</body>
+</html>
