@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Series - Netflix</title>
   <style>
-    @import url('./styl.css'); /* Importamos la base */
-
-
+@import url('./styl.css'); /* Importamos la base */
+    /* Base Styles */
 body {
   font-family: Arial, sans-serif;
   color: #fff;
   background-color: #141414;
-  background-image: url('https://www.muycomputer.com/wp-content/uploads/2022/06/5-funciones-ocultas-que-no-conocias-de-Netflix-e1656722531484.jpg'); /* Cambia a un fondo de series */
-}
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20220206/pngtree-netflix-multimedia-company-light-sign-colorful-communication-movies-photo-image_35291580.jpg'); /* Cambia a un fondo de series */
+}<
 
 .container {
   width: 90%;
@@ -93,8 +92,6 @@ body {
   display: block; /* Solo el video activo se muestra */
 }
 
-
-
 .btn-primary {
   background-color: #e50914;
   padding: 0.75rem 1.5rem;
@@ -144,6 +141,9 @@ body {
   height: 80%;
   border-radius: 20px;
 }
+.movie:hover img {
+  transform: scale(1.1);
+}
 
 .movie p {
   margin-top: 0.5rem;
@@ -165,7 +165,7 @@ body {
   color: #000000;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 40px;
   z-index: 100;
 }
 
@@ -180,7 +180,10 @@ body {
 .carousel-arrow:hover {
   background-color: #e50914;
 }
-    .modal {
+
+/* Estilo general para el modal */
+
+.modal {
   display: none; /* El modal estará oculto inicialmente */
   position: fixed;
   top: 50%;
@@ -276,7 +279,6 @@ body.modal-open::before {
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-
 
   </style>
 </head>
