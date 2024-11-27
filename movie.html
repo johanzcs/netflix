@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +11,7 @@ body {
   color: #fff;
   background-color: #141414;
   background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20220206/pngtree-netflix-multimedia-company-light-sign-colorful-communication-movies-photo-image_35291580.jpg'); /* Cambia a un fondo de series */
-}
+}<
 
 .container {
   width: 90%;
@@ -92,8 +91,6 @@ body {
   display: block; /* Solo el video activo se muestra */
 }
 
-
-
 .btn-primary {
   background-color: #e50914;
   padding: 0.75rem 1.5rem;
@@ -143,6 +140,9 @@ body {
   height: 80%;
   border-radius: 20px;
 }
+.movie:hover img {
+  transform: scale(1.1);
+}
 
 .movie p {
   margin-top: 0.5rem;
@@ -164,7 +164,7 @@ body {
   color: #000000;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 40px;
   z-index: 100;
 }
 
@@ -180,6 +180,104 @@ body {
   background-color: #e50914;
 }
 
+/* Estilo general para el modal */
+
+.modal {
+  display: none; /* El modal estará oculto inicialmente */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+  border-radius: 20px;
+  box-shadow: 0 9px 13px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  height: 400px;
+  z-index: 1000;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Botón de cerrar */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #de2929;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+  padding: 25px;
+}
+
+/* Estilo para el cuerpo del modal */
+.modal-body {
+  display: flex;
+  gap: 20px;
+}
+
+/* Imagen en el modal */
+#movie-image {
+  flex: 1;
+  max-width: 250px;
+  height: auto;
+  border-radius: 13px;
+  box-shadow: 0 7px 9px rgba(171, 230, 6, 0.88);
+}
+
+/* Detalles del modal */
+.modal-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Título */
+#movie-title {
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #dd1313;
+}
+
+/* Texto general */
+#movie-info,
+#movie-genre,
+#movie-duration,
+#movie-release {
+  font-size: 21px;
+  line-height: 1.10;
+  color: #f1e5e5;
+}
+
+/* Estilo para los encabezados en negrita */
+.modal-details strong {
+  color: #e41616;
+  font-weight: bold;
+}
+
+/* Fondo oscuro al abrir el modal */
+body.modal-open {
+  overflow: hidden;
+}
+
+body.modal-open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
   </style>
 </head>
 <body>
@@ -188,7 +286,7 @@ body {
       <h1 class="logo">Netflix</h1>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">HOME</a></li>
+          <li><a href="netflix.html">HOME</a></li>
           <li><a href="movie.html">MOVIES</a></li>
           <li><a href="series.html">SERIES</a></li>
           
@@ -196,7 +294,6 @@ body {
       </nav>
     </div>
   </header>
-
   <main>
     <!-- Sección Principal -->
     <section class="highlight">
@@ -215,117 +312,379 @@ body {
         </div>
       </section>
       
+      <section class="catalog">
+        <h2>POPULAR MOVIES</h2>
+        <div class="carousel-container">
+          <button class="carousel-arrow left">&larr;</button>
+          <div class="carousel">
+            
+            <div class="movie" 
+            data-title="Los niños perdidos" 
+            data-info="Un grupo de niños debe enfrentarse a un mundo hostil mientras buscan un refugio seguro tras la desaparición de sus padres."
+            data-image="https://pics.filmaffinity.com/Los_nianos_perdidos-134200063-large.jpg"
+            data-genre="Drama, Aventura"
+            data-duration="120 min"
+            data-release="2024">
+         <img src="https://pics.filmaffinity.com/Los_nianos_perdidos-134200063-large.jpg" alt="Los niños perdidos">
+         <p>Los niños perdidos</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="El detective nocturno" 
+            data-info="Un policía infiltrado se enfrenta a su propio dilema moral en un thriller lleno de giros."
+            data-image="https://image.tmdb.org/t/p/w1280//wKxpBxdrLqXlYKTemPuYL0Y30dV.jpg"
+            data-genre="Thriller, Crimen"
+            data-duration="130 min"
+            data-release="2023">
+         <img src="https://image.tmdb.org/t/p/w1280//wKxpBxdrLqXlYKTemPuYL0Y30dV.jpg" alt="El detective nocturno">
+         <p>El detective nocturno</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="El último sobreviviente" 
+            data-info="En un mundo post-apocalíptico, un hombre lucha por encontrar esperanza en medio del caos."
+            data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhYyN5iftuM2wTwZKmZjh13uaPJOqMuEwlFsEn0MzJXupiVhfIHmqfN6vrLcivrlcTQHI&usqp=CAU"
+            data-genre="Ciencia ficción, Aventura"
+            data-duration="115 min"
+            data-release="2024">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhYyN5iftuM2wTwZKmZjh13uaPJOqMuEwlFsEn0MzJXupiVhfIHmqfN6vrLcivrlcTQHI&usqp=CAU" alt="El último sobreviviente">
+         <p>El último sobreviviente</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="Bandido" 
+            data-info="La historia de un ladrón carismático que desafía al sistema y se convierte en leyenda."
+            data-image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht-xjufk9taa3580eCx_OF1j_HMsKJAKoJqkqcEcnrEpfgywuN6am-0XTTY6p7IXDPPuCGFETJOOw9s_a9koCQ6cgqF_0dZFH7uRNYmzKx2_7_IMikyNJ4oa7vvv2vZDIS8OEDHpU4eS7wu9JGkqRpIZPS5ouA8wpxKwaa-J1ODqrgOCOho6ZZE-4re9tO/s288/bandido.jpg"
+            data-genre="Acción, Western"
+            data-duration="118 min"
+            data-release="2023">
+         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht-xjufk9taa3580eCx_OF1j_HMsKJAKoJqkqcEcnrEpfgywuN6am-0XTTY6p7IXDPPuCGFETJOOw9s_a9koCQ6cgqF_0dZFH7uRNYmzKx2_7_IMikyNJ4oa7vvv2vZDIS8OEDHpU4eS7wu9JGkqRpIZPS5ouA8wpxKwaa-J1ODqrgOCOho6ZZE-4re9tO/s288/bandido.jpg" alt="Bandido">
+         <p>Bandido</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="Horizonte Final" 
+            data-info="Una misión espacial lleva a un grupo de científicos al borde de la galaxia, donde encuentran más de lo que esperaban."
+            data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0-Z_oK4gU3uzeLVrr9Eo5pYweF1Yyzn6lVQ&s"
+            data-genre="Ciencia ficción, Suspenso"
+            data-duration="120 min"
+            data-release="2023">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0-Z_oK4gU3uzeLVrr9Eo5pYweF1Yyzn6lVQ&s" alt="Horizonte Final">
+         <p>Horizonte Final</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="Nos vemos la próxima Navidad" 
+            data-info="Un romance inesperado surge entre dos desconocidos durante las fiestas navideñas."
+            data-image="https://static.wikia.nocookie.net/doblaje/images/d/d7/Nos_vemos_la_proxima_Navidad_-_Poster.jpg/revision/latest/thumbnail/width/360/height/360?cb=20241106144951&path-prefix=es"
+            data-genre="Romance, Comedia"
+            data-duration="102 min"
+            data-release="2024">
+         <img src="https://static.wikia.nocookie.net/doblaje/images/d/d7/Nos_vemos_la_proxima_Navidad_-_Poster.jpg/revision/latest/thumbnail/width/360/height/360?cb=20241106144951&path-prefix=es" alt="Nos vemos la próxima Navidad">
+         <p>Nos vemos la próxima Navidad</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="Los Mercenarios 4" 
+            data-info="El equipo de mercenarios regresa para enfrentar su misión más peligrosa hasta la fecha."
+            data-image="https://i.blogs.es/bda309/poster-mercenarios-4/450_1000.jpeg"
+            data-genre="Acción, Aventura"
+            data-duration="123 min"
+            data-release="2023">
+         <img src="https://i.blogs.es/bda309/poster-mercenarios-4/450_1000.jpeg" alt="Los Mercenarios 4">
+         <p>Los Mercenarios 4</p>
+       </div>
+       
+       <div class="movie" 
+            data-title="The Whale" 
+            data-info="Un hombre con obesidad mórbida intenta redimirse con su hija adolescente mientras lidia con su propia culpa."
+            data-image="https://www.justwatch.com/images/poster/305202087/s166/the-whale"
+            data-genre="Drama"
+            data-duration="117 min"
+            data-release="2023">
+         <img src="https://www.justwatch.com/images/poster/305202087/s166/the-whale" alt="The Whale">
+         <p>The Whale</p>
+       </div>  <!-- Más películas -->
+          </div>
+          <button class="carousel-arrow right">&rarr;</button>
+        </div>
+      </section>     
       
-    <!-- Carrusel de Películas -->
-    <section class="catalog">
-      <h2>POPULAR MOVIES</h2>
-      <div class="carousel-container">
-        <button class="carousel-arrow left">&larr;</button>
-        <div class="carousel">
-          <div class="movie"><span>1</span><img src="https://pics.filmaffinity.com/Los_nianos_perdidos-134200063-large.jpg" alt="Movie 1"><p>Movie Title 1</p></div>
-          <div class="movie"><span>2</span><img src="https://image.tmdb.org/t/p/w1280//wKxpBxdrLqXlYKTemPuYL0Y30dV.jpg" alt="Movie 2"><p>Movie Title 2</p></div>
-          <div class="movie"><span>3</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhYyN5iftuM2wTwZKmZjh13uaPJOqMuEwlFsEn0MzJXupiVhfIHmqfN6vrLcivrlcTQHI&usqp=CAU" alt="Movie 3"><p>Movie Title 3</p></div>
-          <div class="movie"><span>4</span><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht-xjufk9taa3580eCx_OF1j_HMsKJAKoJqkqcEcnrEpfgywuN6am-0XTTY6p7IXDPPuCGFETJOOw9s_a9koCQ6cgqF_0dZFH7uRNYmzKx2_7_IMikyNJ4oa7vvv2vZDIS8OEDHpU4eS7wu9JGkqRpIZPS5ouA8wpxKwaa-J1ODqrgOCOho6ZZE-4re9tO/s288/bandido.jpg" alt="Movie 4"><p>Movie Title 4</p></div>
-          <div class="movie"><span>5</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0-Z_oK4gU3uzeLVrr9Eo5pYweF1Yyzn6lVQ&s" alt="Movie 1"><p>Movie Title 5</p></div>
-          <div class="movie"><span>6</span><img src="https://static.wikia.nocookie.net/doblaje/images/d/d7/Nos_vemos_la_proxima_Navidad_-_Poster.jpg/revision/latest/thumbnail/width/360/height/360?cb=20241106144951&path-prefix=es" alt="Movie 2"><p>Movie Title 6</p></div>
-          <div class="movie"><span>7</span><img src="https://i.blogs.es/bda309/poster-mercenarios-4/450_1000.jpeg" alt="Movie 3"><p>Movie Title 7</p></div>
-          <div class="movie"><span>8</span><img src="https://www.justwatch.com/images/poster/305202087/s166/the-whale" alt="Movie 4"><p>Movie Title 8</p></div>
-        </div>
-        <button class="carousel-arrow right">&rarr;</button>
+      <section class="catalog">
+        <h2>COMING SOON</h2>
+        <div class="carousel-container">
+          <button class="carousel-arrow left">&larr;</button>
+          <div class="carousel">     
+              
+              <div class="movie" 
+              data-title="Gone Girl" 
+              data-info="Un thriller psicológico sobre una desaparición misteriosa que sacude la vida de una pareja."
+              data-image="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZah3tviDK-4MCRsRoGYNFV_sglOJttG54LmIHMtJaprMBO_U4GtDUBJ5Gu7wdPOdjt3ooVAh2rXijd9Xmqiw-Nnm60dsvQ75Tfb8xOa6aq-sHtf7mxj_TmmrA89rv5AnEq9-A.jpg?r=63a"
+              data-genre="Thriller, Crimen"
+              data-duration="149 min"
+              data-release="2014">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZah3tviDK-4MCRsRoGYNFV_sglOJttG54LmIHMtJaprMBO_U4GtDUBJ5Gu7wdPOdjt3ooVAh2rXijd9Xmqiw-Nnm60dsvQ75Tfb8xOa6aq-sHtf7mxj_TmmrA89rv5AnEq9-A.jpg?r=63a" alt="Gone Girl">
+              <p>Gone Girl</p>
+          </div>
+          
+          <div class="movie" 
+              data-title="The Angry Birds" 
+              data-info="Un grupo de pájaros intenta salvar su isla de un ataque de cerdos verdes en esta comedia animada."
+              data-image="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTvF798TdFDpjeJ0Pc8nOqEjRNiKnTJ1oi9Pt3Nz4YDrhT367Ks7xebPpat7oBHXQxhr7rytkJUU4ub8vydfCtVTxPZUNgN7aIKv.jpg?r=b94"
+              data-genre="Animación, Comedia"
+              data-duration="97 min"
+              data-release="2016">
+              <img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTvF798TdFDpjeJ0Pc8nOqEjRNiKnTJ1oi9Pt3Nz4YDrhT367Ks7xebPpat7oBHXQxhr7rytkJUU4ub8vydfCtVTxPZUNgN7aIKv.jpg?r=b94" alt="The Angry Birds">
+              <p>The Angry Birds</p>
+          </div>
+          
+          <div class="movie" 
+              data-title="Ready or Not" 
+              data-info="Una joven novia debe luchar por sobrevivir durante un juego mortal en la mansión de su nuevo esposo."
+              data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlqj1hany0Bmq8RWRbCj-Q6SD1C5yv1Ksjw&s"
+              data-genre="Terror, Suspenso"
+              data-duration="95 min"
+              data-release="2019">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlqj1hany0Bmq8RWRbCj-Q6SD1C5yv1Ksjw&s" alt="Ready or Not">
+              <p>Ready or Not</p>
+          </div>
+          
+          <div class="movie" 
+              data-title="Cortes en el Tiempo" 
+              data-info="Un joven viajero del tiempo intenta cambiar su destino mientras se enfrenta a desafíos en diferentes épocas."
+              data-image="https://static.wikia.nocookie.net/doblaje/images/b/bb/Timecut1.jpg/revision/latest?cb=20241106205911&path-prefix=es"
+              data-genre="Ciencia ficción, Drama"
+              data-duration="125 min"
+              data-release="2021">
+              <img src="https://static.wikia.nocookie.net/doblaje/images/b/bb/Timecut1.jpg/revision/latest?cb=20241106205911&path-prefix=es" alt="Cortes en el Tiempo">
+              <p>Cortes en el Tiempo</p>
+          </div>
+          
+          <div class="movie" 
+              data-title="Don't Move" 
+              data-info="Un hombre se enfrenta a sus decisiones más oscuras en una noche llena de giros inesperados."
+              data-image="https://pics.filmaffinity.com/No_te_muevas-752654470-large.jpg"
+              data-genre="Thriller, Drama"
+              data-duration="104 min"
+              data-release="2022">
+              <img src="https://pics.filmaffinity.com/No_te_muevas-752654470-large.jpg" alt="Don't Move">
+              <p>Don't Move</p>
+          </div>
+          
+          <div class="movie" 
+              data-title="Return of the King" 
+              data-info="El último capítulo de la saga épica de Tolkien, donde se lucha por la supervivencia del mundo de la Tierra Media."
+              data-image="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABc36A6FNlbkQmf8XxwRVSVqVnGmb4xXvz8V1s5yMq5yZuDDfE_q0l4f0EOdvYT-0AbUb6Zn47lzfD2ZTt-g0C6CX2Qpz8tjxTMBT0YBobPDgEi9VRpw3I6OvWPEBXZrOX8QMRg.jpg?r=6bd"
+              data-genre="Aventura, Fantasía"
+              data-duration="201 min"
+              data-release="2003">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABc36A6FNlbkQmf8XxwRVSVqVnGmb4xXvz8V1s5yMq5yZuDDfE_q0l4f0EOdvYT-0AbUb6Zn47lzfD2ZTt-g0C6CX2Qpz8tjxTMBT0YBobPDgEi9VRpw3I6OvWPEBXZrOX8QMRg.jpg?r=6bd" alt="Return of the King">
+              <p>Return of the King The Fall and Rise of Elvis Presley</p>
+          </div>
+          
+          <div class="movie" 
+              data-title="The Fall and Rise of Elvis Presley" 
+              data-info="Un documental que explora la vida, caída y resurgimiento de la leyenda del rock Elvis Presley."
+              data-image="https://preview.redd.it/the-buckingham-murders-is-coming-to-netflix-on-november-8-v0-9fhd4afr5fzd1.png?auto=webp&s=9fb7ffbaa610c588b62056c6061bfdfaa53d7942"
+              data-genre="Documental"
+              data-duration="90 min"
+              data-release="2020">
+              <img src="https://preview.redd.it/the-buckingham-murders-is-coming-to-netflix-on-november-8-v0-9fhd4afr5fzd1.png?auto=webp&s=9fb7ffbaa610c588b62056c6061bfdfaa53d7942" alt="The Fall and Rise of Elvis Presley">
+              <p>The Buckingham Murders</p>
+          </div>
+        
+          
+          <div class="movie" 
+              data-title="Pedro Páramo" 
+              data-info="Adaptación cinematográfica de la obra literaria, centrada en un joven que busca a su padre en un pueblo fantasma."
+              data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFZfyOvEWyuUZcTs944lbjvh79SLz1uSfDPA&s"
+              data-genre="Drama, Fantasía"
+              data-duration="100 min"
+              data-release="2024">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFZfyOvEWyuUZcTs944lbjvh79SLz1uSfDPA&s" alt="Pedro Páramo">
+              <p>Pedro Páramo</p>
+          </div>
+  
       </div>
-    </section>
-
-    <!-- Segunda y Tercera Sección -->
-    <section class="catalog">
-      <h2>COMING SOON</h2>
-      <div class="carousel-container">
-        <button class="carousel-arrow left">&larr;</button>
-        <div class="carousel">
-            <div class="movie"><span>1</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZah3tviDK-4MCRsRoGYNFV_sglOJttG54LmIHMtJaprMBO_U4GtDUBJ5Gu7wdPOdjt3ooVAh2rXijd9Xmqiw-Nnm60dsvQ75Tfb8xOa6aq-sHtf7mxj_TmmrA89rv5AnEq9-A.jpg?r=63a" alt="Movie 1"><p>Movie Title 1</p></div>
-          <div class="movie"><span>2</span><img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTvF798TdFDpjeJ0Pc8nOqEjRNiKnTJ1oi9Pt3Nz4YDrhT367Ks7xebPpat7oBHXQxhr7rytkJUU4ub8vydfCtVTxPZUNgN7aIKv.jpg?r=b94" alt="Movie 2"><p>Movie Title 2</p></div>
-          <div class="movie"><span>3</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlqj1hany0Bmq8RWRbCj-Q6SD1C5yv1Ksjw&s" alt="Movie 3"><p>Movie Title 3</p></div>
-          <div class="movie"><span>4</span><img src="https://static.wikia.nocookie.net/doblaje/images/b/bb/Timecut1.jpg/revision/latest?cb=20241106205911&path-prefix=es" alt="Movie 4"><p>Movie Title 4</p></div>
-          <div class="movie"><span>5</span><img src="https://pics.filmaffinity.com/No_te_muevas-752654470-large.jpg" alt="Movie 1"><p>Movie Title 5</p></div>
-          <div class="movie"><span>6</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABc36A6FNlbkQmf8XxwRVSVqVnGmb4xXvz8V1s5yMq5yZuDDfE_q0l4f0EOdvYT-0AbUb6Zn47lzfD2ZTt-g0C6CX2Qpz8tjxTMBT0YBobPDgEi9VRpw3I6OvWPEBXZrOX8QMRg.jpg?r=6bd" alt="Movie 2"><p>Movie Title 6</p></div>
-          <div class="movie"><span>7</span><img src="https://preview.redd.it/the-buckingham-murders-is-coming-to-netflix-on-november-8-v0-9fhd4afr5fzd1.png?auto=webp&s=9fb7ffbaa610c588b62056c6061bfdfaa53d7942" alt="Movie 3"><p>Movie Title 7</p></div>
-          <div class="movie"><span>8</span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFZfyOvEWyuUZcTs944lbjvh79SLz1uSfDPA&s" alt="Movie 4"><p>Movie Title 8</p></div>
-          <!-- Repetir elementos de la película -->
-          <!-- Asegúrate de cambiar las imágenes y los títulos -->
+      <button class="carousel-arrow right">&rarr;</button>
+    </div>
+  </section>
+          <section class="catalog">
+                <h2>AWARD-WINNING MOVIES</h2>
+                <div class="carousel-container">
+                  <button class="carousel-arrow left">&larr;</button>
+                  <div class="carousel">
+              
+                    <div class="movie" 
+                      data-title="Los hombres lobo" 
+                      data-info="Una aldea aislada enfrenta noches aterradoras bajo el acecho de hombres lobo sedientos de sangre."
+                      data-image="https://www.infobae.com/resizer/v2/HG3O2Q4ZVRF57OB4Y2VXNR7PXQ.jfif?auth=cd24d65710b0c06d8040c1bbcca915764524c5e148416139f697d1b6f50180bb&smart=true&width=350&height=467&quality=85"
+                      data-genre="Terror, Suspenso" 
+                      data-duration="120 min" 
+                      data-release="2024">
+                      <img src="https://www.infobae.com/resizer/v2/HG3O2Q4ZVRF57OB4Y2VXNR7PXQ.jfif?auth=cd24d65710b0c06d8040c1bbcca915764524c5e148416139f697d1b6f50180bb&smart=true&width=350&height=467&quality=85" alt="Los hombres lobo">
+                      <p>Los hombres lobo</p>
+                    </div>
+              
+                    <div class="movie" 
+                      data-title="La doble fortaleza" 
+                      data-info="Dos hermanos descubren un secreto que podría cambiar el destino de su familia y su país." 
+                      data-image="https://static.wikia.nocookie.net/doblaje/images/0/04/Dopattiposterspanish.png/revision/latest?cb=20241025203951&path-prefix=es" 
+                      data-genre="Acción, Drama" 
+                      data-duration="130 min" 
+                      data-release="2023">
+                      <img src="https://static.wikia.nocookie.net/doblaje/images/0/04/Dopattiposterspanish.png/revision/latest?cb=20241025203951&path-prefix=es" alt="La doble fortaleza">
+                      <p>La doble fortaleza</p>
+                    </div>
+              
+                    <div class="movie" 
+                      data-title="Beauty in Black" 
+                      data-info="Una bailarina lucha por encontrar su lugar en un mundo lleno de desafíos y traiciones." 
+                      data-image="https://m.media-amazon.com/images/M/MV5BZjliMjNlZTMtZDgyMS00NWFkLWJiMzMtNWY0MGQxNmY0ZDUwXkEyXkFqcGc@._V1_.jpg" 
+                      data-genre="Drama, Romance" 
+                      data-duration="115 min" 
+                      data-release="2024">
+                      <img src="https://m.media-amazon.com/images/M/MV5BZjliMjNlZTMtZDgyMS00NWFkLWJiMzMtNWY0MGQxNmY0ZDUwXkEyXkFqcGc@._V1_.jpg" alt="Beauty in Black">
+                      <p>Beauty in Black</p>
+                    </div> 
+              
+                    <div class="movie" 
+                      data-title="El abogado del Lincoln" 
+                      data-info="Un abogado trabaja desde su auto para resolver casos mientras enfrenta su propio pasado oscuro." 
+                      data-image="https://es.web.img2.acsta.net/pictures/22/04/13/20/33/2712815.jpg" 
+                      data-genre="Drama, Crimen" 
+                      data-duration="118 min" 
+                      data-release="2023">
+                      <img src="https://es.web.img2.acsta.net/pictures/22/04/13/20/33/2712815.jpg" alt="El abogado del Lincoln">
+                      <p>El abogado del Lincoln</p>
+                    </div>
+              
+                    <div class="movie" 
+                      data-title="Investigation Aliens" 
+                      data-info="Un grupo de científicos intenta desentrañar misterios de vida extraterrestre en el universo." 
+                      data-image="https://pics.filmaffinity.com/El_enigma_extraterrestre_Serie_de_TV-495213779-large.jpg" 
+                      data-genre="Ciencia ficción, Suspenso" 
+                      data-duration="120 min" 
+                      data-release="2023">
+                      <img src="https://pics.filmaffinity.com/El_enigma_extraterrestre_Serie_de_TV-495213779-large.jpg" alt="Investigation Aliens">
+                      <p>Investigation Aliens</p>
+                    </div> 
+              
+                    <div class="movie" 
+                      data-title="The Diplomat" 
+                      data-info="Un diplomático debe enfrentar intrigas políticas y conflictos internacionales mientras protege a su familia." 
+                      data-image="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABcBaUdRaE8dFXz9kCEgjmeuHzWYEgwIsPfHLMCXnui7olueoNNucW25GC7ExjN5bO_uxkPNjmFaKzZYFYOlhBzByc9BhYD0LCyHUFbS4sQq_a26VWss6imI1LRCN4t1PXZnOtg.jpg?r=4e8" 
+                      data-genre="Drama, Thriller" 
+                      data-duration="102 min" 
+                      data-release="2024">
+                      <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABcBaUdRaE8dFXz9kCEgjmeuHzWYEgwIsPfHLMCXnui7olueoNNucW25GC7ExjN5bO_uxkPNjmFaKzZYFYOlhBzByc9BhYD0LCyHUFbS4sQq_a26VWss6imI1LRCN4t1PXZnOtg.jpg?r=4e8" alt="The Diplomat">
+                      <p>The Diplomat</p>
+                    </div>    
+              
+                    <div class="movie" 
+                      data-title="Outer Banks" 
+                      data-info="Un grupo de amigos descubre un tesoro perdido, enfrentándose a misterios y peligros." 
+                      data-image="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQ-JLdIftbjpq1egLdVnlCxSMHEk92lnsdyMVW1hlG112qc-W6-QFPzm212c5FYsjtjdIx9K7h2ZXZ5JMYF1OwVOXQ1Lw2G5dimNRWOFO_eOyc_Alh1n-wL3lN9OYvLIK_wvJQ.jpg?r=7d3" 
+                      data-genre="Aventura, Suspenso" 
+                      data-duration="123 min" 
+                      data-release="2023">
+                      <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQ-JLdIftbjpq1egLdVnlCxSMHEk92lnsdyMVW1hlG112qc-W6-QFPzm212c5FYsjtjdIx9K7h2ZXZ5JMYF1OwVOXQ1Lw2G5dimNRWOFO_eOyc_Alh1n-wL3lN9OYvLIK_wvJQ.jpg?r=7d3" alt="Outer Banks">
+                      <p>Outer Banks</p>
+                    </div> 
+              
+                    <div class="movie" 
+                      data-title="Die Kaiserin" 
+                      data-info="La vida de una emperatriz mientras navega por el amor, el poder y los desafíos de su época." 
+                      data-image="https://pics.filmaffinity.com/La_emperatriz_Serie_de_TV-629738321-large.jpg" 
+                      data-genre="Drama, Histórico" 
+                      data-duration="117 min" 
+                      data-release="2023">
+                      <img src="https://pics.filmaffinity.com/La_emperatriz_Serie_de_TV-629738321-large.jpg" alt="Die Kaiserin">
+                      <p>Die Kaiserin</p>
+                    </div>
+              
+                  </div>
+                  <button class="carousel-arrow right">&rarr;</button>
+                </div>
+              </section>
+    
+     <!-- Modal -->
+     <div id="info-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <div class="modal-body">
+            <img id="movie-image" src="" alt="Movie Image">
+            <div class="modal-details">
+              <h3 id="movie-title"></h3>
+              <p id="movie-info"></p>
+              <p><strong>Genre:</strong> <span id="movie-genre"></span></p>
+              <p><strong>Duration:</strong> <span id="movie-duration"></span></p>
+              <p><strong>Release Year:</strong> <span id="movie-release"></span></p>
+            </div>
+          </div>
         </div>
-        <button class="carousel-arrow right">&rarr;</button>
       </div>
-    </section>
-
-    <section class="catalog">
-      <h2>AWARD-WINNING MOVIES</h2>
-      <div class="carousel-container">
-        <button class="carousel-arrow left">&larr;</button>
-        <div class="carousel">
-            <div class="movie"><span>1</span><img src="https://www.infobae.com/resizer/v2/HG3O2Q4ZVRF57OB4Y2VXNR7PXQ.jfif?auth=cd24d65710b0c06d8040c1bbcca915764524c5e148416139f697d1b6f50180bb&smart=true&width=350&height=467&quality=85" alt="Movie 1"><p>Movie Title 1</p></div>
-          <div class="movie"><span>2</span><img src="https://static.wikia.nocookie.net/doblaje/images/0/04/Dopattiposterspanish.png/revision/latest?cb=20241025203951&path-prefix=es" alt="Movie 2"><p>Movie Title 2</p></div>
-          <div class="movie"><span>3</span><img src="https://m.media-amazon.com/images/M/MV5BZjliMjNlZTMtZDgyMS00NWFkLWJiMzMtNWY0MGQxNmY0ZDUwXkEyXkFqcGc@._V1_.jpg" alt="Movie 3"><p>Movie Title 3</p></div>
-          <div class="movie"><span>4</span><img src="https://es.web.img2.acsta.net/pictures/22/04/13/20/33/2712815.jpg" alt="Movie 4"><p>Movie Title 4</p></div>
-          <div class="movie"><span>5</span><img src="https://pics.filmaffinity.com/El_enigma_extraterrestre_Serie_de_TV-495213779-large.jpg" alt="Movie 1"><p>Movie Title 5</p></div>
-          <div class="movie"><span>6</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABcBaUdRaE8dFXz9kCEgjmeuHzWYEgwIsPfHLMCXnui7olueoNNucW25GC7ExjN5bO_uxkPNjmFaKzZYFYOlhBzByc9BhYD0LCyHUFbS4sQq_a26VWss6imI1LRCN4t1PXZnOtg.jpg?r=4e8" alt="Movie 2"><p>Movie Title 6</p></div>
-          <div class="movie"><span>7</span><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQ-JLdIftbjpq1egLdVnlCxSMHEk92lnsdyMVW1hlG112qc-W6-QFPzm212c5FYsjtjdIx9K7h2ZXZ5JMYF1OwVOXQ1Lw2G5dimNRWOFO_eOyc_Alh1n-wL3lN9OYvLIK_wvJQ.jpg?r=7d3" alt="Movie 3"><p>Movie Title 7</p></div>
-          <div class="movie"><span>8</span><img src="https://pics.filmaffinity.com/La_emperatriz_Serie_de_TV-629738321-large.jpg" alt="Movie 4"><p>Movie Title 8</p></div>
-          <!-- Repetir elementos de la película -->
-          <!-- Asegúrate de cambiar las imágenes y los títulos -->
-        </div>
-        <button class="carousel-arrow right">&rarr;</button>
-      </div>
-    </section>
-  </main>
-
+  
   <footer class="footer">
     <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
   </footer>
 
   <script>
-    document.querySelectorAll('.carousel-container').forEach(container => {
-  const carousel = container.querySelector('.carousel');
-  const leftArrow = container.querySelector('.carousel-arrow.left');
-  const rightArrow = container.querySelector('.carousel-arrow.right');
+   document.addEventListener('DOMContentLoaded', () => {
+  const movies = document.querySelectorAll('.movie'); // Seleccionar las películas
+  const modal = document.getElementById('info-modal');
+  const closeBtn = document.querySelector('.close-btn');
 
+  // Elementos del modal
+  const modalImage = document.getElementById('movie-image');
+  const modalTitle = document.getElementById('movie-title');
+  const modalInfo = document.getElementById('movie-info');
+  const modalGenre = document.getElementById('movie-genre');
+  const modalDuration = document.getElementById('movie-duration');
+  const modalRelease = document.getElementById('movie-release');
 
-  leftArrow.addEventListener('click', () => {
-    carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+  // Mostrar modal con información de la película
+  movies.forEach(movie => {
+    movie.addEventListener('click', () => {
+      // Obtener datos de la película
+      const title = movie.getAttribute('data-title');
+      const info = movie.getAttribute('data-info');
+      const image = movie.getAttribute('data-image');
+      const genre = movie.getAttribute('data-genre');
+      const duration = movie.getAttribute('data-duration');
+      const release = movie.getAttribute('data-release');
+
+      // Verifica que los datos estén disponibles antes de actualizar el modal
+      if (title && info && image && genre && duration && release) {
+        // Actualizar contenido del modal
+        modalImage.src = image;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+        modalInfo.textContent = info;
+        modalGenre.textContent = genre;
+        modalDuration.textContent = duration;
+        modalRelease.textContent = release;
+
+        // Mostrar el modal
+        modal.style.display = 'flex';
+      } else {
+        console.error('Datos de la película incompletos');
+      }
+    });
   });
 
-  rightArrow.addEventListener('click', () => {
-    carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+  // Cerrar el modal
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Cerrar modal al hacer clic fuera del contenido
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
   });
 });
-window.onload = function () {
-  const videos = document.querySelectorAll('.video'); // Seleccionamos todos los iframes (videos)
-  let currentVideo = 0; // Índice del video actual
-
-  function playNextVideo() {
-    // Ocultar el video actual
-    videos[currentVideo].classList.remove('active');
-    
-    // Mover al siguiente video (si llega al final, reiniciar al primero)
-    currentVideo = (currentVideo + 1) % videos.length;
-    
-    // Mostrar el siguiente video
-    videos[currentVideo].classList.add('active');
-  }
-
-  // Iniciar el primer video
-  videos[currentVideo].classList.add('active');
-  
-  // Reproducir el siguiente video cuando el actual termine
-  setTimeout(function() {
-    playNextVideo();
-  }, 150000); // Este tiempo es de 5 segundos, ajústalo si es necesario
-
-  // Controlar el cambio de video cuando se termine el actual (5 segundos en este ejemplo)
-  videos.forEach(video => {
-    video.addEventListener('ended', playNextVideo);
-  });
-};
-
-
   </script>
 </body>
 </html>
