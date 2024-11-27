@@ -180,6 +180,102 @@ body {
 .carousel-arrow:hover {
   background-color: #e50914;
 }
+    .modal {
+  display: none; /* El modal estará oculto inicialmente */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+  border-radius: 20px;
+  box-shadow: 0 9px 13px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  height: 400px;
+  z-index: 1000;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Botón de cerrar */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #de2929;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+  padding: 25px;
+}
+
+/* Estilo para el cuerpo del modal */
+.modal-body {
+  display: flex;
+  gap: 20px;
+}
+
+/* Imagen en el modal */
+#movie-image {
+  flex: 1;
+  max-width: 250px;
+  height: auto;
+  border-radius: 13px;
+  box-shadow: 0 7px 9px rgba(171, 230, 6, 0.88);
+}
+
+/* Detalles del modal */
+.modal-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Título */
+#movie-title {
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #dd1313;
+}
+
+/* Texto general */
+#movie-info,
+#movie-genre,
+#movie-duration,
+#movie-release {
+  font-size: 21px;
+  line-height: 1.10;
+  color: #f1e5e5;
+}
+
+/* Estilo para los encabezados en negrita */
+.modal-details strong {
+  color: #e41616;
+  font-weight: bold;
+}
+
+/* Fondo oscuro al abrir el modal */
+body.modal-open {
+  overflow: hidden;
+}
+
+body.modal-open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
 
 
   </style>
