@@ -630,7 +630,50 @@ body.modal-open::before {
   </footer>
 
   <script>
-   document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel-container').forEach(container => {
+  const carousel = container.querySelector('.carousel');
+  const leftArrow = container.querySelector('.carousel-arrow.left');
+  const rightArrow = container.querySelector('.carousel-arrow.right');
+
+
+  leftArrow.addEventListener('click', () => {
+    carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+  });
+});
+window.onload = function () {
+  const videos = document.querySelectorAll('.video'); // Seleccionamos todos los iframes (videos)
+  let currentVideo = 0; // Índice del video actual
+
+  function playNextVideo() {
+    // Ocultar el video actual
+    videos[currentVideo].classList.remove('active');
+    
+    // Mover al siguiente video (si llega al final, reiniciar al primero)
+    currentVideo = (currentVideo + 1) % videos.length;
+    
+    // Mostrar el siguiente video
+    videos[currentVideo].classList.add('active');
+  }
+
+  // Iniciar el primer video
+  videos[currentVideo].classList.add('active');
+  
+  // Reproducir el siguiente video cuando el actual termine
+  setTimeout(function() {
+    playNextVideo();
+  }, 150000); // Este tiempo es de 5 segundos, ajústalo si es necesario
+
+  // Controlar el cambio de video cuando se termine el actual (5 segundos en este ejemplo)
+  videos.forEach(video => {
+    video.addEventListener('ended', playNextVideo);
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
   const movies = document.querySelectorAll('.movie'); // Seleccionar las películas
   const modal = document.getElementById('info-modal');
   const closeBtn = document.querySelector('.close-btn');
@@ -654,22 +697,17 @@ body.modal-open::before {
       const duration = movie.getAttribute('data-duration');
       const release = movie.getAttribute('data-release');
 
-      // Verifica que los datos estén disponibles antes de actualizar el modal
-      if (title && info && image && genre && duration && release) {
-        // Actualizar contenido del modal
-        modalImage.src = image;
-        modalImage.alt = title;
-        modalTitle.textContent = title;
-        modalInfo.textContent = info;
-        modalGenre.textContent = genre;
-        modalDuration.textContent = duration;
-        modalRelease.textContent = release;
+      // Actualizar contenido del modal
+      modalImage.src = image;
+      modalImage.alt = title;
+      modalTitle.textContent = title;
+      modalInfo.textContent = info;
+      modalGenre.textContent = genre;
+      modalDuration.textContent = duration;
+      modalRelease.textContent = release;
 
-        // Mostrar el modal
-        modal.style.display = 'flex';
-      } else {
-        console.error('Datos de la película incompletos');
-      }
+      // Mostrar el modal
+      modal.style.display = 'flex';
     });
   });
 
@@ -685,6 +723,7 @@ body.modal-open::before {
     }
   });
 });
+
   </script>
 </body>
 </html>
