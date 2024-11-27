@@ -481,7 +481,7 @@ body.modal-open::before {
     <p>&copy; 2024 Netflix. ALL RIGHTS RESERVED.</p>
   </footer>
   <script>
-    document.querySelectorAll('.carousel-container').forEach(container => {
+   document.querySelectorAll('.carousel-container').forEach(container => {
   const carousel = container.querySelector('.carousel');
   const leftArrow = container.querySelector('.carousel-arrow.left');
   const rightArrow = container.querySelector('.carousel-arrow.right');
@@ -516,13 +516,64 @@ window.onload = function () {
   // Reproducir el siguiente video cuando el actual termine
   setTimeout(function() {
     playNextVideo();
-  }, 140000); // Este tiempo es de 5 segundos, ajústalo si es necesario
+  }, 150000); // Este tiempo es de 5 segundos, ajústalo si es necesario
 
   // Controlar el cambio de video cuando se termine el actual (5 segundos en este ejemplo)
   videos.forEach(video => {
     video.addEventListener('ended', playNextVideo);
   });
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const movies = document.querySelectorAll('.movie'); // Seleccionar las películas
+  const modal = document.getElementById('info-modal');
+  const closeBtn = document.querySelector('.close-btn');
+
+  // Elementos del modal
+  const modalImage = document.getElementById('movie-image');
+  const modalTitle = document.getElementById('movie-title');
+  const modalInfo = document.getElementById('movie-info');
+  const modalGenre = document.getElementById('movie-genre');
+  const modalDuration = document.getElementById('movie-duration');
+  const modalRelease = document.getElementById('movie-release');
+
+  // Mostrar modal con información de la película
+  movies.forEach(movie => {
+    movie.addEventListener('click', () => {
+      // Obtener datos de la película
+      const title = movie.getAttribute('data-title');
+      const info = movie.getAttribute('data-info');
+      const image = movie.getAttribute('data-image');
+      const genre = movie.getAttribute('data-genre');
+      const duration = movie.getAttribute('data-duration');
+      const release = movie.getAttribute('data-release');
+
+      // Actualizar contenido del modal
+      modalImage.src = image;
+      modalImage.alt = title;
+      modalTitle.textContent = title;
+      modalInfo.textContent = info;
+      modalGenre.textContent = genre;
+      modalDuration.textContent = duration;
+      modalRelease.textContent = release;
+
+      // Mostrar el modal
+      modal.style.display = 'flex';
+    });
+  });
+
+  // Cerrar el modal
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Cerrar modal al hacer clic fuera del contenido
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
 
 
   </script>
